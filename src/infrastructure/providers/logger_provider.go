@@ -20,7 +20,7 @@ func (lp *LoggerProvider) Setup(enableLog bool, debugLog bool) {
 
 var _ contracts.ILoggerProvider = (*LoggerProvider)(nil)
 
-func newLoggerProvider() *LoggerProvider {
+func NewLoggerProvider() *LoggerProvider {
 	return &LoggerProvider{}
 }
 
@@ -66,5 +66,5 @@ var Logger *LoggerProvider
 
 func init() {
 	fmt.Println("LoggerProvider initialized")
-	Logger = newLoggerProvider()
+	Logger = NewLoggerProvider()
 }
