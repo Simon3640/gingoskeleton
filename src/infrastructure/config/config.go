@@ -35,8 +35,6 @@ func NewConfig() *Config {
 		fmt.Println("Error loading configuration")
 		logger.Logger.Panic("Error loading configuration", err)
 	}
-
-	logger.Logger.Setup(config.EnableLog, config.DebugLog)
 	return config
 }
 
