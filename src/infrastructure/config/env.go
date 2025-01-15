@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"reflect"
-	"strconv"
 
 	"github.com/joho/godotenv"
 )
@@ -51,30 +50,6 @@ func setFieldValue(field reflect.Value, value string) error {
 	if value == "" {
 		return errors.New("empty value")
 	}
-
-	switch field.Kind() {
-	case reflect.String:
-		field.SetString(value)
-	case reflect.Bool:
-		boolValue, err := strconv.ParseBool(value)
-		if err != nil {
-			return errors.New("invalid boolean value: " + value)
-		}
-		field.SetBool(boolValue)
-	case reflect.Int:
-		intValue, err := strconv.Atoi(value)
-		if err != nil {
-			return errors.New("invalid integer value: " + value)
-		}
-		field.SetInt(int64(intValue))
-	case reflect.Float64:
-		floatValue, err := strconv.ParseFloat(value, 64)
-		if err != nil {
-			return errors.New("invalid float value: " + value)
-		}
-		field.SetFloat(floatValue)
-	default:
-		return errors.New("unsupported field type")
-	}
+	field.SetString(value)
 	return nil
 }

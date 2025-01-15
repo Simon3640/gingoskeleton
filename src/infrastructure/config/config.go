@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"reflect"
 
 	logger "gingoskeleton/src/infrastructure/providers"
 )
@@ -17,14 +18,15 @@ type Config struct {
 }
 
 func (c *Config) ToMap() map[string]string {
-	return map[string]string{
-		"APP_NAME":    c.AppName,
-		"APP_ENV":     c.AppEnv,
-		"APP_PORT":    c.AppPort,
-		"APP_VERSION": c.AppVersion,
-		"ENABLE_LOG":  fmt.Sprintf("%t", c.EnableLog),
-		"DEBUG_LOG":   fmt.Sprintf("%t", c.DebugLog),
+	values := make(map[string]string)
+	cfgValue := reflect.ValueOf(c).Elem()
+
+	for i := 0; i < cfgValue.NumField(); i++ {
+		field := cfgValue.Type().Field(i)
+		value := cfgValue.Field(i).String()
+		values[field.Name] = value
 	}
+	return values
 }
 
 func NewConfig() *Config {
