@@ -14,8 +14,8 @@ type Config struct {
 	AppPort        string `env:"APP_PORT" envDefault:"8080"`
 	AppVersion     string `env:"APP_VERSION" envDefault:"0.0.1"`
 	AppDescription string `env:"APP_DESCRIPTION" envDefault:"Description"`
-	EnableLog      bool   `env:"ENABLE_LOG" envDefault:"true"`
-	DebugLog       bool   `env:"DEBUG_LOG" envDefault:"true"`
+	EnableLog      string `env:"ENABLE_LOG" envDefault:"true"`
+	DebugLog       string `env:"DEBUG_LOG" envDefault:"true"`
 }
 
 func (c *Config) ToMap() map[string]string {
