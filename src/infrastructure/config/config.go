@@ -9,12 +9,13 @@ import (
 
 type Config struct {
 	// Application
-	AppName    string `env:"APP_NAME" envDefault:"Gingoskeleton"`
-	AppEnv     string `env:"APP_ENV" envDefault:"development"`
-	AppPort    string `env:"APP_PORT" envDefault:"8080"`
-	AppVersion string `env:"APP_VERSION" envDefault:"0.0.1"`
-	EnableLog  bool   `env:"ENABLE_LOG" envDefault:"true"`
-	DebugLog   bool   `env:"DEBUG_LOG" envDefault:"true"`
+	AppName        string `env:"APP_NAME" envDefault:"Gingoskeleton"`
+	AppEnv         string `env:"APP_ENV" envDefault:"development"`
+	AppPort        string `env:"APP_PORT" envDefault:"8080"`
+	AppVersion     string `env:"APP_VERSION" envDefault:"0.0.1"`
+	AppDescription string `env:"APP_DESCRIPTION" envDefault:"Description"`
+	EnableLog      bool   `env:"ENABLE_LOG" envDefault:"true"`
+	DebugLog       bool   `env:"DEBUG_LOG" envDefault:"true"`
 }
 
 func (c *Config) ToMap() map[string]string {

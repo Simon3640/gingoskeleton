@@ -8,12 +8,13 @@ import (
 
 type AppSettings struct {
 	// Application
-	AppName    string
-	AppEnv     string
-	AppPort    string
-	AppVersion string
-	EnableLog  bool
-	DebugLog   bool
+	AppName        string
+	AppEnv         string
+	AppPort        string
+	AppVersion     string
+	AppDescription string
+	EnableLog      bool
+	DebugLog       bool
 }
 
 func NewAppSettings() *AppSettings {
