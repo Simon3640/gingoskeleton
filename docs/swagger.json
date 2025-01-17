@@ -3,5 +3,20 @@
     "info": {
         "contact": {}
     },
-    "paths": {}
+    "paths": {
+        "/api/health-check": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Health Check"
+                ],
+                "responses": {}
+            }
+        }
+    }
 }

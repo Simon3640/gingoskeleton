@@ -38,7 +38,7 @@ func (as *AppSettings) Initialize(values map[string]string) error {
 		if !fieldValue.CanSet() {
 			continue
 		}
-		if value, exists := values[field.Name]; !exists {
+		if value, exists := values[field.Name]; exists {
 			if err := setFieldValue(fieldValue, value); err != nil {
 				return err
 			}
