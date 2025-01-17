@@ -1,6 +1,6 @@
 package messages
 
-var EsMessages = map[string]string{
+var EsMessages = map[MessageKeysEnum]string{
 	"SOMETHING_WENT_WRONG":           "Oh, lo sentimos, algo no salió bien con esta acción!",
 	"RESOURCE_NOT_FOUND":             "Recurso no encontrado!",
 	"SOME_PARAMETERS_ARE_MISSING":    "Faltan algunos parámetros: %s.",
@@ -16,4 +16,5 @@ var EsMessages = map[string]string{
 	"INVALID_EMAIL":                  "El correo electrónico es inválido.",
 	"INVALID_PASSWORD":               "La contraseña es inválida.",
 	"INVALID_SESSION":                "La sesión es inválida.",
+	"APPLICATION_STATUS_OK":          "La aplicación está en ejecución.",
 }

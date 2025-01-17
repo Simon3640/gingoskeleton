@@ -1,6 +1,6 @@
 package messages
 
-var EnMessages = map[string]string{
+var EnMessages = map[MessageKeysEnum]string{
 	"SOMETHING_WENT_WRONG":           "Oh sorry, something went wrong with current action!",
 	"RESOURCE_NOT_FOUND":             "Resource not found!",
 	"SOME_PARAMETERS_ARE_MISSING":    "Some parameters are missing: %s.",
@@ -16,4 +16,5 @@ var EnMessages = map[string]string{
 	"INVALID_EMAIL":                  "Invalid email.",
 	"INVALID_PASSWORD":               "Invalid password.",
 	"INVALID_SESSION":                "Invalid session.",
+	"APPLICATION_STATUS_OK":          "Application is running.",
 }

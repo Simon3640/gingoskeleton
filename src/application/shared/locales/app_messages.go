@@ -21,14 +21,14 @@ func NewLocale(localeType LocaleTypeEnum) *Locale {
 	}
 }
 
-func (l *Locale) Locales() map[LocaleTypeEnum]map[string]string {
-	locales := make(map[LocaleTypeEnum]map[string]string)
+func (l *Locale) Locales() map[LocaleTypeEnum]map[messages.MessageKeysEnum]string {
+	locales := make(map[LocaleTypeEnum]map[messages.MessageKeysEnum]string)
 	locales[EN_US] = messages.EnMessages
 	locales[ES_ES] = messages.EsMessages
 	return locales
 }
 
-func (l *Locale) Get(localeType LocaleTypeEnum, key string) string {
+func (l *Locale) Get(localeType LocaleTypeEnum, key messages.MessageKeysEnum) string {
 	if localeType == "" {
 		localeType = l.localeType
 	}

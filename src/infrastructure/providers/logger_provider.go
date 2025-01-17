@@ -5,7 +5,7 @@ import (
 	"log"
 	"log/slog"
 
-	contracts "gingoskeleton/src/application/contracts/providers"
+	contracts "gingoskeleton/src/application/contracts"
 )
 
 type LoggerProvider struct {

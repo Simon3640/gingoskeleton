@@ -18,9 +18,10 @@ type MessageKeys struct {
 	INVALID_EMAIL                  MessageKeysEnum
 	INVALID_PASSWORD               MessageKeysEnum
 	INVALID_SESSION                MessageKeysEnum
+	APPLICATION_STATUS_OK          MessageKeysEnum
 }
 
-var messageKeys = MessageKeys{
+var MessageKeysInstance = MessageKeys{
 	AUTHORIZATION_REQUIRED:         "AUTHORIZATION_REQUIRED",
 	RESOURCE_NOT_FOUND:             "RESOURCE_NOT_FOUND",
 	PROCESSING_DATA_CLIENT_ERROR:   "PROCESSING_DATA_CLIENT_ERROR",
@@ -36,4 +37,5 @@ var messageKeys = MessageKeys{
 	INVALID_EMAIL:                  "INVALID_EMAIL",
 	INVALID_PASSWORD:               "INVALID_PASSWORD",
 	INVALID_SESSION:                "INVALID_SESSION",
+	APPLICATION_STATUS_OK:          "APPLICATION_STATUS_OK",
 }
