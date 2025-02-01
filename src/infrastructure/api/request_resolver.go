@@ -7,12 +7,12 @@ import (
 	gin "github.com/gin-gonic/gin"
 )
 
-type RequestResolver struct {
+type RequestResolver[D any] struct {
 	statusMapping map[status.ApplicationStatusEnum]int
 }
 
-func NewRequestResolver() *RequestResolver {
-	return &RequestResolver{
+func NewRequestResolver[D any]() *RequestResolver[D] {
+	return &RequestResolver[D]{
 		statusMapping: map[status.ApplicationStatusEnum]int{
 			status.Success:                   200,
 			status.Updated:                   200,
@@ -32,9 +32,9 @@ func NewRequestResolver() *RequestResolver {
 	}
 }
 
-func (rr *RequestResolver) ResolveDTO(
+func (rr *RequestResolver[D]) ResolveDTO(
 	ctx *gin.Context,
-	result usecase.UseCaseResult[any],
+	result *usecase.UseCaseResult[D],
 	headersToAdd map[HTTPHeaderTypeEnum]string,
 ) (*gin.H, int) {
 	content := gin.H{}
@@ -46,7 +46,7 @@ func (rr *RequestResolver) ResolveDTO(
 	return &content, rr.statusMapping[result.StatusCode]
 }
 
-func (rr *RequestResolver) getHeaders(
+func (rr *RequestResolver[D]) getHeaders(
 	ctx *gin.Context, headersToAdd map[HTTPHeaderTypeEnum]string,
 ) {
 	for key, value := range headersToAdd {
