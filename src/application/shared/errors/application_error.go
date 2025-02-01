@@ -3,6 +3,7 @@ package errors
 import (
 	"errors"
 	"fmt"
+	"strconv"
 )
 
 type ApplicationError struct {
@@ -16,7 +17,7 @@ func (ae *ApplicationError) ToError() error {
 		"Error: %s, Context: %s, Code: %s",
 		ae.ErrMsg,
 		ae.Context,
-		ae.Code,
+		strconv.Itoa(ae.Code),
 	)
 	return errors.New(errorMessage)
 }
